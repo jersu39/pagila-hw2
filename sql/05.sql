@@ -11,3 +11,9 @@
  * For this problem, you should use the NOT IN clause;
  * in problem 05b you will use the LEFT JOIN clause.
  */
+
+select actor.last_name, actor.first_name from actor
+where actor.first_name || actor.last_name not in (
+    select customer.first_name || customer.last_name from customer
+)
+order by actor.last_name, actor.first_name;
