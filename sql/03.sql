@@ -11,7 +11,7 @@
  * Use a where clause to restrict results to the subquery.
  */
 
-select customer_id from rental
+select distinct customer_id from rental
 join inventory using(inventory_id)
 join film using(film_id)
 where film_id in (

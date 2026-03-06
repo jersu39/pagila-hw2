@@ -8,7 +8,7 @@
  * in problem 06b you will use the LEFT JOIN clause.
  */
 
-select title from film, inventory
+select distinct title from film, inventory
 where film.film_id not in (
     select film_id from inventory
 )

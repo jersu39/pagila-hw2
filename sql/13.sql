@@ -10,10 +10,10 @@
  */
 
 select
-    extract(year from rental_date) as Year,
-    extract(month from rental_date) as Month,
+    extract(year from rental_date) as "Year",
+    extract(month from rental_date) as "Month",
     count(*) as "Total Rentals"
 from rental
 group by
-    rollup(Year, Month)
-order by Year, Month;
+    rollup("Year", "Month")
+order by "Year", "Month";
