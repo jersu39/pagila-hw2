@@ -8,7 +8,7 @@
  * See: <https://www.postgresql.org/docs/current/functions-formatting.html#FUNCTIONS-FORMATTING-EXAMPLES-TABLE>
  */
 
-select *, to_char(100*"total revenue"/(sum(revenue) over()), '900D00') as "percent revenue"
+select *, to_char(100*"total revenue"/(sum(revenue) over()), 'FM900D00') as "percent revenue"
 from (
     select *, sum(revenue) over (order by rank) as "total revenue"
     from (
@@ -25,5 +25,5 @@ from (
         order by revenue desc, title
     ) as t2
 ) as t3
-group by rank, title, revenue, "total revenue"
-order by rank asc, title;
+group by "rank", title, revenue, "total revenue"
+order by "rank" asc, title;
